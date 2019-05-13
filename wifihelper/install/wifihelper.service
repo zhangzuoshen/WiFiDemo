@@ -1,0 +1,10 @@
+[Unit]
+Description=The service of WiFiHelper
+
+[Service]
+EnvironmentFile=/etc/wifihelper.conf
+ExecStart=/usr/bin/wifihelper
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
