@@ -7,8 +7,15 @@ PageWiFiConnectForm {
         id: wifiManager
         isWiFiEnabled: switchWLAN.checked
         onIsWiFiEnabledChanged: {
-            if(wifiManager.isWiFiEnabled)
-                wifiManager.isWiFiAutoScan = true
+            if(wifiManager.isWiFiEnabled) {
+                wifiManager.isWiFiAutoScan = true;
+            }
+        }
+
+        Component.onCompleted: {
+            if(wifiManager.isWiFiEnabled) {
+                wifiManager.isWiFiAutoScan = true;
+            }
         }
     }
 

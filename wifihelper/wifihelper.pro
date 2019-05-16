@@ -37,9 +37,8 @@ linux-oe-g++ {
                    $$PWD/install/dhcpc_action.sh
     INSTALLS += action
 
-    service.path = /etc/systemd/system
-    service.files = $$PWD/install/wifihelper.service \
-                    $$PWD/install/wpa.service
+    service.path = /etc/systemd/system/multi-user.target.wants
+    service.files = $$PWD/install/wifihelper.service
     INSTALLS += service
 
     dbus_conf.path = /etc/dbus-1/system.d/

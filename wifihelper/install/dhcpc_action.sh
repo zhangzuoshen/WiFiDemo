@@ -11,5 +11,5 @@ if [ "$CMD" = "CONNECTED" ]; then
 fi
 if [ "$CMD" = "DISCONNECTED" ]; then
    echo Finish DHCP Client for $IFNAME # > /dev/console
-   udhcpc -R -q -i $IFNAME -n
+   ifconfig $IFNAME 0.0.0.0
 fi

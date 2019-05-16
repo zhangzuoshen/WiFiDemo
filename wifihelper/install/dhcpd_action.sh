@@ -13,7 +13,7 @@ kill_daemon() {
 
     PID=`cat $PF`
     if [ $PID -gt 0 ]; then
-        if ps | grep "$PID\|$NAME" | grep -v grep; then
+        if ps | grep "$PID" | grep "$NAME"; then
             kill $PID
         fi
     fi
@@ -43,7 +43,6 @@ if [ "$CMD" = "P2P-GROUP-REMOVED" ]; then
     fi
     if [ "$4" = "client" ]; then
         echo Finish P2P DHCP Client for $GIFNAME # > /dev/console
-        udhcpc -R -q -i $GIFNAME -n
         ifconfig $GIFNAME 0.0.0.0
     fi
 fi
